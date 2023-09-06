@@ -19,7 +19,7 @@ function Product()
         <Row>
           <Col md={4}>
             <Card className='card-container'>
-              <a href="/EBookShowByCard">
+              <a href="/Ebook">
                 <Card.Img className="Cardimg" variant="top" src="/Images/Ebook.jpg" />
               </a>
               <Card.Body>

@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import EbookSearch from './EbookSearch';
 import { Dropdown } from 'react-bootstrap';
 
-function Navk() {
+function NormalNavbar() {
 
  
   return (
@@ -45,20 +45,10 @@ function Navk() {
     </Dropdown.Menu>
   </Dropdown>
           
-          <Dropdown>
-    <Dropdown.Toggle variant="light mx-10  "  style={{leftmargin:'7'}} id="dropdown-basic">
-      Product Carts
-    </Dropdown.Toggle>
-    <Dropdown.Menu>
-      <Dropdown.Item href="./Ebook">Ebook</Dropdown.Item>
-      <Dropdown.Item href="./MusicCart">Music</Dropdown.Item>
-      <Dropdown.Item href="./Videos">Videos</Dropdown.Item>      
-    </Dropdown.Menu>
-  </Dropdown>
   <a href='/Login'><button type="button" class="btn btn-primary btn-rounded  mx-3"  id="button"  value=" ">Login</button></a>
 
             {/* <LoginButton/> */}
-            <EbookSearch />
+           
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -66,4 +56,4 @@ function Navk() {
   );
 }
 
-export default Navk;
+export default NormalNavbar;

@@ -1,99 +1,72 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function submitData  () 
- {
-   
+
+function LoginForm() {
+  const [isLogin, setLogin] = useState(false);
+  const navigate = useNavigate();
+  const submitData = () => {
     if (window.confirm("Are you sure you want to submit the data?")) {
-        // <enter the fetch method here ></enter>
-    alert("Data submitted !!")
+      var email = document.getElementById("customer_email").value;
+      var password = document.getElementById("password").value;
+
+      if (email === "Rohitwazarkar17899@gmail.com" && password === "Rohit@123") {
+        if (!isLogin) {
+          setLogin(true);
+          localStorage.setItem("isLogin", true);
+          alert("Stored Successfully!!");
+         if(localStorage.getItem("isLogin")==="true")
+         {
+          navigate('/Home');
+         }
+        }
+      }
     } else {
-      alert("Go to the home page");
+      navigate('/LoginPage');
     }
   };
 
-const Login= () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [employee, setEmployee] = useState(null); // State for employee data
-  
-
-  useEffect(() => {
-    // Simulate fetching employee data from a JSON file
-    fetch('/path-to-employees.json')
-      .then(response => response.json())
-      .then(data => {
-        // For simplicity, let's assume we're logging in the first employee
-        setEmployee(data[0]);
-      });
-  }, []);
-
-  const handleLogin = () => {
-    setLoggedIn(!loggedIn);
-  };
-
-  return (<div>
-    <div style={{ textAlign: "center" }}>
+  return (
+    <div>
+      <div style={{ textAlign: "center" }}>
         <h1>Please login here.....</h1>
       </div>
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "70vh", width:"1500" ,borderRadius:'15' }}>
-       
-    <div className="card"   >
-            <div
-              className="bg-image hover-overlay ripple"
-              data-mdb-ripple-color="light"
-            >
-              <a href="#!">
-                <div
-                  className="mask"
-                  style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                ></div>
-              </a>
-            </div>
-            <div className="card-body" class={{}}>
-              <h5 className="card-title">Login Page </h5>
-              <p className="card-text">
-                <div>
-                <div>
-          <form>
-      <div class="form-outline mb-4">
-        <input type="email" id="customer_email" class="form-control" />
-        <label class="form-label" for="form1Example1">Email address</label>
-      </div>
-    
-      <div class="form-outline mb-4">
-        <input type="password" id="password" class="form-control" />
-        <label class="form-label" for="form1Example2">Password</label>
-      </div>
-    
-      <div class="row mb-4">
-        <div class="col d-flex justify-content-center">
-        
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-            <label class="form-check-label" for="form1Example3"> Remember me </label>
-          </div>
-        </div>
-    
-        <div class="col">
-          <a href="#!">Forgot password?</a>
-        </div><br></br>
-      
-      </div>
-      <div class="col" style={{aligntext:"center"}}>
-          <h6>are you first time here <a href='/SignUpPage'><ul>click here for Registration</ul> </a></h6>
-        </div>
-      <button type="submit" onClick={submitData} class="btn btn-primary btn-block">Sign in</button>
-    </form>
-        </div> 
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "70vh", width: "1500", borderRadius: '15' }}>
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">Login Page</h5>
+            <p className="card-text">
+              <form>
+                <div className="form-outline mb-4">
+                  <input type="email" id="customer_email" className="form-control" />
+                  <label className="form-label" htmlFor="form1Example1">Email address</label>
                 </div>
-              </p>
-            </div>
+                <div className="form-outline mb-4">
+                  <input type="password" id="password" className="form-control" />
+                  <label className="form-label" htmlFor="form1Example2">Password</label>
+                </div>
+                <div className="row mb-4">
+                  <div className="col d-flex justify-content-center">
+                    <div className="form-check">
+                      <input className="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                      <label className="form-check-label" htmlFor="form1Example3"> Remember me </label>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <a href="#!">Forgot password?</a>
+                  </div>
+                </div>
+                <div className="col" style={{ textAlign: "center" }}>
+                  <h6>Are you first time here <a href='/SignUpPage'><ul>click here for Registration</ul></a></h6>
+                </div>
+                <button onClick={submitData} className="btn btn-primary btn-block">Sign in</button>
+              </form>
+            </p>
           </div>
-    </div>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
-export default Login;
-
-
+export default LoginForm;

@@ -24,6 +24,7 @@ import Aboutus from './Aboutus'
 import Contactus from './Contactus'
 import SignUpPage from './LoginPage/SignUpPage';
 import {DisplayEbook} from './DisplayEbook';
+import SignIn from './New/SignIn';
 import Gateway from './Gateway';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -53,6 +54,11 @@ root.render(
           <Route path='ContactUs' element ={<Contactus/>}/>
           <Route path='MusicCart' element ={<MusicCart/>}/>
           <Route path="DisplayEbook/:id" element={<DisplayEbook />} />
+
+          <Route path="SignIn" element={<SignIn/>} />
+         
+
+
          
          
         </Route>
